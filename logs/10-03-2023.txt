@@ -1,0 +1,4 @@
+127.0.0.1(admin)--query--tables(delete from table_user_online where time < 1678431252) (14:04:12 10/03/2023)
+::1(admin)--query--tables(delete from table_user_online where time < 1678431255) (14:04:15 10/03/2023)
+127.0.0.1(admin)--query--tables(delete from table_user_online where time < 1678431257) (14:04:17 10/03/2023)
+127.0.0.1(admin)--update--news([["","id","=","1"]]) (14:04:17 10/03/2023)

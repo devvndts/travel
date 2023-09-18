@@ -1,0 +1,6 @@
+::1(admin)--update--setting([["","id","=","1"]]) (11:54:03 26/04/2023)
+::1(admin)--query--tables(delete from table_seo where id_parent =  and com = 'setting' and act = 'update' and type = 'setting') (11:54:03 26/04/2023)
+::1(admin)--insert--seo(295) (11:54:03 26/04/2023)
+::1(admin)--update--setting([["","id","=","1"]]) (11:54:40 26/04/2023)
+::1(admin)--query--tables(delete from table_seo where id_parent =  and com = 'setting' and act = 'update' and type = 'setting') (11:54:40 26/04/2023)
+::1(admin)--insert--seo(296) (11:54:40 26/04/2023)
