@@ -159,7 +159,29 @@ NN_FRAMEWORK.Popup = function () {
 };
 /* Wow */
 NN_FRAMEWORK.Wows = function () {
-	new WOW().init();
+	var wow = new WOW({
+		boxClass: 'wow',
+		animateClass: 'animated',
+		offset: 0,
+		mobile: true,
+		live: true,
+		callback: function (box) {
+		  // the callback is fired every time an animation is started
+		  // the argument that is passed in is the DOM node being animated
+		},
+		scrollContainer: null,
+		resetAnimation: false,
+	  });
+	  
+	  // Initialize WOW
+	  wow.init();
+	  
+	  // Add a scroll event listener
+	  window.addEventListener('scroll', function() {
+		wow.sync(); // Trigger WOW animations on scroll
+	  });
+	  
+	
 };
 /* Pagings */
 NN_FRAMEWORK.Pagings = function () {
@@ -361,6 +383,7 @@ NN_FRAMEWORK.OwlData = function (obj) {
 			} else {
 				animation_now = 'animate__animated ' + animations_list.trim();
 			}
+			console.log(animation_now);
 			$(this).find('.owl-item').eq(item).find('[owl-item-animation]').addClass(animation_now);
 		});
 	}

@@ -148,31 +148,34 @@ class Functions
             <div class="<?=$class?>">
         <?php } 
         foreach ($arr as $k => $v) { ?>
-            <div class="product">
-                <?php if(LIKESITE) { ?>
-                <a href="#" class="save-listing" data-id="<?=$v['id']?>"><i class="far fa-heart"></i></a>
-                <?php } ?>
-                <a class="box-product text-decoration-none" href="<?= $v[$sluglang] ?>" title="<?= $v['name' . $lang] ?>">
-                    <p class="pic-product scale-img">
-                        <?= $this->getImage(['sizes' => '270x270x2', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $v['name' . $lang]]) ?>
-                    </p>
-                    <h3 class="name-product text-split"><?= $v['name' . $lang] ?></h3>
-                    <p class="price-product">
-                        <?php if ($v['discount']) { ?>
-                            <span class="price-new"><?= $this->formatMoney($v['sale_price']) ?></span>
-                            <span class="price-old"><?= $this->formatMoney($v['regular_price']) ?></span>
-                            <span class="price-per"><?= '-' . $v['discount'] . '%' ?></span>
-                        <?php } else { ?>
-                            <span class="price-new"><?= ($v['regular_price']) ? $this->formatMoney($v['regular_price']) : lienhe ?></span>
-                        <?php } ?>
-                    </p>
-                </a>
-                <?php /*
-                <p class="cart-product w-clear">
-                    <span class="btn btn-sm btn-success cart-add addcart mr-2" data-id="<?= $v['id'] ?>" data-action="addnow">Thêm vào giỏ hàng</span>
-                    <span class="btn btn-sm btn-danger cart-buy addcart" data-id="<?= $v['id'] ?>" data-action="buynow">Mua ngay</span>
-                </p>
-                */ ?>
+             <div class="item__tour">
+                <div class="image__tour">
+                    <img onerror="this.src='<?=THUMBS?>/150x120x2/assets/images/noimage.png';" src="<?=THUMBS?>/350x210x1/<?=UPLOAD_PRODUCT_L.$v['photo']?>" alt="<?=$v['name'.$lang]?>" alt="">
+                </div>
+                <div class="date__tour">
+                    <div class="date__tour__address">
+                        <i class="fa-light fa-location-dot"></i>
+                        <span><?=$v['location'.$lang]?></span>
+                    </div>
+                    <div class="date__tour__time">
+                        <i class="fa-light fa-clock"></i>
+                        <span><?=$v['timer'.$lang]?></span>
+                    </div>
+                </div>
+                <div class="info__tour">
+                    <h3 class="info__tour__name"><?=$v['name'.$lang]?></h3>
+                    <div class="info__tour__price">
+                        <span><b>From</b><?= $this->formatMoney($v['regular_price']) ?></span>
+                        <p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                    </div>
+                    <a href="<?=$v[$sluglang]?>" class="info__tour__btn">Xem chi tiết</a>
+                </div>
             </div>
         <?php }
         if($class!='') { ?>

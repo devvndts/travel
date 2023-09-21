@@ -1,34 +1,23 @@
 <div class="grid-pro-detail w-clear">
     <div class="row">
         <div class="left-pro-detail col-md-6 col-lg-5 mb-4">
-            <div class="productTop1_fotorama">
-                <div class="fotorama"
-                    data-width="740"
-                    data-maxwidth="100%"
-                    data-allowfullscreen="true"
-                    data-nav="thumbs">
-                    <img id="Zoom-1" src="<?=THUMBS?>/740x740x2/<?=UPLOAD_PRODUCT_L.$rowDetail['photo']?>">
-                    <?php foreach ($rowDetailPhoto as $key => $value) { ?>
-                    <img src="<?=THUMBS?>/740x740x2/<?=UPLOAD_PRODUCT_L.$value['photo']?>">
-                    <?php } ?>
-                </div>
-            </div>
-            <?php /* ?>
+
+            <?php ?>
             <a id="Zoom-1" class="MagicZoom" data-options="zoomMode: off; hint: off; rightClick: true; selectorTrigger: hover; expandCaption: false; history: false;" href="<?= ASSET . THUMBS ?>/540x540x2/<?= UPLOAD_PRODUCT_L . $rowDetail['photo'] ?>" title="<?= $rowDetail['name' . $lang] ?>">
-                <?= $func->getImage(['isLazy' => false, 'sizes' => '540x540x2', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name' . $lang]]) ?>
+                <?= $func->getImage(['isLazy' => false, 'sizes' => '540x540x1', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name' . $lang]]) ?>
             </a>
             <?php if ($rowDetailPhoto) {
                 if (count($rowDetailPhoto) > 0) { ?>
                     <div class="gallery-thumb-pro">
                         <div class="owl-page owl-carousel owl-theme owl-pro-detail" data-items="screen:0|items:5|margin:10" data-nav="1" data-navcontainer=".control-pro-detail">
                             <div>
-                                <a class="thumb-pro-detail" data-zoom-id="Zoom-1" href="<?= ASSET . THUMBS ?>/540x540x2/<?= UPLOAD_PRODUCT_L . $rowDetail['photo'] ?>" title="<?= $rowDetail['name' . $lang] ?>">
+                                <a class="thumb-pro-detail" data-zoom-id="Zoom-1" href="<?= ASSET . THUMBS ?>/540x540x1/<?= UPLOAD_PRODUCT_L . $rowDetail['photo'] ?>" title="<?= $rowDetail['name' . $lang] ?>">
                                     <?= $func->getImage(['isLazy' => false, 'sizes' => '540x540x2', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $rowDetail['photo'], 'alt' => $rowDetail['name' . $lang]]) ?>
                                 </a>
                             </div>
                             <?php foreach ($rowDetailPhoto as $v) { ?>
                                 <div>
-                                    <a class="thumb-pro-detail" data-zoom-id="Zoom-1" href="<?= ASSET . THUMBS ?>/540x540x2/<?= UPLOAD_PRODUCT_L . $v['photo'] ?>" title="<?= $rowDetail['name' . $lang] ?>">
+                                    <a class="thumb-pro-detail" data-zoom-id="Zoom-1" href="<?= ASSET . THUMBS ?>/540x540x1/<?= UPLOAD_PRODUCT_L . $v['photo'] ?>" title="<?= $rowDetail['name' . $lang] ?>">
                                         <?= $func->getImage(['isLazy' => false, 'sizes' => '540x540x2', 'isWatermark' => false, 'prefix' => 'product', 'upload' => UPLOAD_PRODUCT_L, 'image' => $v['photo'], 'alt' => $rowDetail['name' . $lang]]) ?>
                                     </a>
                                 </div>
@@ -37,28 +26,11 @@
                         <div class="control-pro-detail control-owl transition"></div>
                     </div>
             <?php }
-            } */?>
+            } ?>
         </div>
         <div class="right-pro-detail col-md-6 col-lg-7 mb-4">
             <p class="title-pro-detail mb-2"><?= $rowDetail['name' . $lang] ?></p>
-            
-            <div class="comment-pro-detail mb-3">
-                <div class="comment-star mb-0 mr-2">
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <span style="width: <?= $comment->avgStar() ?>%">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </span>
-                </div>
-                <div class="comment-count"><a>(<?= $comment->total ?> nhận xét)</a></div>
-            </div>
+
             
             <div class="social-plugin social-plugin-pro-detail w-clear">
                 <?php
@@ -223,7 +195,7 @@
     <div class="tabs-pro-detail">
         <ul class="nav nav-tabs" id="tabsProDetail" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="info-pro-detail-tab" data-toggle="tab" href="#info-pro-detail" role="tab"><?= thongtinsanpham ?></a>
+                <a class="nav-link active" id="info-pro-detail-tab" data-toggle="tab" href="#info-pro-detail" role="tab">Thông tin tour</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="commentfb-pro-detail-tab" data-toggle="tab" href="#commentfb-pro-detail" role="tab"><?= binhluan ?></a>
@@ -238,9 +210,9 @@
             </div>
         </div>
     </div>
-    <?php include TEMPLATE . "product/comment.php"; ?>
+    <?php /* include TEMPLATE . "product/comment.php"; */?>
 </div>
-<div class="title-main"><span><?= sanphamcungloai ?></span></div>
+<div class="title-main"><span>Các Tour Khác</span></div>
 <div class="content-main w-clear">
     <?php if (!empty($product)) {
         echo $func->GetProducts($product, 'boxProduct');
@@ -256,18 +228,3 @@
         <div class="pagination-home w-100"><?= (!empty($paging)) ? $paging : '' ?></div>
     </div>
 </div>
-<?php if($recently_viewed) { ?>
-<div class="title-main"><span><?= sanphamdaxem ?></span></div>
-<div class="content-main w-clear">
-    <?php if (!empty($product)) {
-        echo $func->GetProducts($recently_viewed, 'boxProduct');
-    } else { ?>
-        <div class="col-12">
-            <div class="alert alert-warning w-100" role="alert">
-                <strong><?= khongtimthayketqua ?></strong>
-            </div>
-        </div>
-    <?php } ?>
-    <div class="clear"></div>
-</div>
-<?php } ?>

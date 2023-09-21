@@ -103,7 +103,7 @@ $config['product'][$nametype]['img_type_cat'] = '.jpg|.gif|.png|.jpeg|.gif';
 /* Thư viện ảnh */
 $nametype = "thu-vien-anh";
 $config['product'][$nametype]['title_main'] = "Thư viện ảnh";
-$config['product'][$nametype]['check'] = array("hienthi" => "Hiển thị");
+$config['product'][$nametype]['check'] = array("hienthi" => "Hiển thị","noibat"=>"Nổi bật");
 $config['product'][$nametype]['check_all'] = false;
 $config['product'][$nametype]['view'] = true;
 $config['product'][$nametype]['copy'] = true;

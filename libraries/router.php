@@ -103,6 +103,13 @@ $requick = array(
     array("tbl" => "product_sub", "field" => "ids", "source" => "product", "com" => "san-pham", "type" => "san-pham"),
     array("tbl" => "product_brand", "field" => "idb", "source" => "product", "com" => "thuong-hieu", "type" => "san-pham"),
     array("tbl" => "product", "field" => "id", "source" => "product", "com" => "san-pham", "type" => "san-pham", "menu" => true),
+    /* Sản phẩm */
+    array("tbl" => "product_list", "field" => "idl", "source" => "product", "com" => "du-lich-nuoc-ngoai", "type" => "tour-outside"),
+    array("tbl" => "product_cat", "field" => "idc", "source" => "product", "com" => "du-lich-nuoc-ngoai", "type" => "tour-outside"),
+    array("tbl" => "product_item", "field" => "idi", "source" => "product", "com" => "du-lich-nuoc-ngoai", "type" => "tour-outside"),
+    array("tbl" => "product_sub", "field" => "ids", "source" => "product", "com" => "du-lich-nuoc-ngoai", "type" => "tour-outside"),
+    array("tbl" => "product_brand", "field" => "idb", "source" => "product", "com" => "thuong-hieu", "type" => "tour-outside"),
+    array("tbl" => "product", "field" => "id", "source" => "product", "com" => "du-lich-nuoc-ngoai", "type" => "tour-outside", "menu" => true),
 
     /* Tags */
     array("tbl" => "tags", "tbltag" => "product", "field" => "id", "source" => "tags", "com" => "tags-san-pham", "type" => "san-pham", "menu" => true),
@@ -232,6 +239,13 @@ switch ($com) {
         $seo->set('type', isset($_GET['id']) ? "article" : "object");
         $type = $com;
         $titleMain = sanpham;
+        break;
+    case 'du-lich-nuoc-ngoai':
+        $source = "product";
+        $template = isset($_GET['id']) ? "product/product_detail" : "product/product";
+        $seo->set('type', isset($_GET['id']) ? "article" : "object");
+        $type = 'tour-outside';
+        $titleMain = 'Tour Nước Ngoài';
         break;
 
     case 'tim-kiem':

@@ -1,8 +1,75 @@
 @media (min-width:1400px){
 }
-@media (max-width:1366px){
+@media (max-width:1450px){
+	.tour__favorite__item-info{
+		padding: 40px;
+	}
+}
+@media (max-width:1300px){
+	h3.tour__favorite__item-info--title{
+		font-size: 45px;
+	}
+	p.tour__favorite__item-info--desc{
+		padding: 20px 0 0 0;
+	}
+	.title-main span,h3.wrap__intro__right-info-titleMain{
+		font-size: 30px;
+	}
+	.wrap__intro__container{
+	justify-content: space-between;
+	}
+	h2.slider__bookTour__name{
+		font-size: 45px;
+	}
+	.menu ul li a{
+		font-size: 14px;
+	}
+	h3.tour__hotItem__left-titleMain{
+		font-size: 55px;
+	}
+	.report__customer__item-info--name h3{
+		font-size: 17px;
+	}
+	p.wrap__intro__right-info--desc{
+		font-size: 17px;
+	}
+	span.wrap__introRight__criteria-item--title{
+		font-size: 17px;
+	}
+}
+@media (max-width:1150px){
+	a.slider__bookTour__button{
+		font-size: 14px;
+	}
+	h2.slider__bookTour__name{
+		font-size: 40px;
+	}
+	.tour__hotItem__right{
+		margin-top: 5rem;
+	}
+	.tour__favorite__item-info{
+		padding: 25px;
+	}
+	h3.tour__favorite__item-info--title{
+		font-size: 40px;
+	}
+	p.tour__favorite__item-info--desc{
+		padding: 0;
+	}
+	h3.tour__favorite__item-info--title{
+		margin-top: 1rem;
+	}
+	.title-main span, h3.wrap__intro__right-info-titleMain{
+		font-size: 28px;
+	}
 }
 @media (max-width:1024px){
+	.header{
+		display: none;
+	}
+	.menu-res{
+		display: block;
+	}
 	.name-album,.name-video{font-size:14px;}
 	div.wap_copy{justify-content:center!important;}
 	.header .header-top{display:none}
@@ -10,7 +77,6 @@
 	.boxProduct{grid-template-columns:1fr 1fr;gap:10px}
 	.name-product{font-size:14px}
 	.banchay_list{display:none}
-	.title-main span{font-size:18px}
 	.footer-powered{text-align:center}
 	#footer-map{height:30vh}
 	.wrap-main.wrap-home{padding:0}
@@ -18,7 +84,33 @@
 	.filter_block ul{display:none}
 	.footer-news{margin-bottom:1rem}
 }
+@media (max-width:991px){
+	.tour__favorite__item-info {
+		padding: 50px;
+	}
+	.tour__hotItem__right {
+		margin-top: 0rem;
+	}
+	.wrap__intro__container{
+		flex-direction: column-reverse;
+	}
+	.wrap__intro__left{
+		width: 100%;
+	}
+	.wrap__intro__right{
+		width: 100%;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	
+}
 @media (max-width:870px){
+	h3.tour__hotItem__left-titleMain{
+		font-size: 45px;
+	}
+	.report__customer{
+		padding-bottom: 10px;
+	}
 	.logo-mb{padding:0 20px;display:block;text-align:center}
 	.logo-mb img{max-width:100px}
 	.thongtin-mb{}

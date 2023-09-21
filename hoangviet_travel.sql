@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Sep 18, 2023 at 12:28 AM
--- Server version: 5.7.39
+-- Host: 127.0.0.1
+-- Generation Time: Sep 21, 2023 at 05:40 PM
+-- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `table_city` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `level` varchar(100) DEFAULT NULL,
+  `code` varchar(2) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -116,16 +116,16 @@ INSERT INTO `table_city` (`id`, `name`, `slug`, `level`, `code`, `numb`, `status
 
 CREATE TABLE `table_color` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type_show` tinyint(1) DEFAULT '0',
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `photo` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `color` varchar(15) DEFAULT NULL,
+  `type_show` tinyint(1) DEFAULT 0,
+  `type` varchar(30) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -146,18 +146,18 @@ INSERT INTO `table_color` (`id`, `photo`, `namevi`, `nameen`, `color`, `type_sho
 
 CREATE TABLE `table_comment` (
   `id` int(11) NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `id_variant` int(11) DEFAULT '0',
-  `star` int(11) DEFAULT '0',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `poster` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_posted` int(11) DEFAULT '0'
+  `id_parent` int(11) DEFAULT 0,
+  `id_variant` int(11) DEFAULT 0,
+  `star` int(11) DEFAULT 0,
+  `title` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `poster` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_posted` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -195,8 +195,8 @@ INSERT INTO `table_comment` (`id`, `id_parent`, `id_variant`, `star`, `title`, `
 
 CREATE TABLE `table_comment_photo` (
   `id` int(11) NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `id_parent` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -225,9 +225,9 @@ INSERT INTO `table_comment_photo` (`id`, `id_parent`, `photo`) VALUES
 
 CREATE TABLE `table_comment_video` (
   `id` int(11) NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `id_parent` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL,
+  `video` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -248,18 +248,18 @@ INSERT INTO `table_comment_video` (`id`, `id_parent`, `photo`, `video`) VALUES
 
 CREATE TABLE `table_contact` (
   `id` int(11) UNSIGNED NOT NULL,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_attach` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci,
-  `notes` mediumtext COLLATE utf8mb4_unicode_ci,
-  `address` mediumtext COLLATE utf8mb4_unicode_ci,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `fullname` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `file_attach` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `notes` mediumtext DEFAULT NULL,
+  `address` mediumtext DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -270,8 +270,8 @@ CREATE TABLE `table_contact` (
 
 CREATE TABLE `table_counter` (
   `id` int(11) NOT NULL,
-  `tm` int(11) DEFAULT '0',
-  `ip` varchar(16) COLLATE utf8mb4_unicode_ci DEFAULT '0.0.0.0'
+  `tm` int(11) DEFAULT 0,
+  `ip` varchar(16) DEFAULT '0.0.0.0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -3913,7 +3913,18 @@ INSERT INTO `table_counter` (`id`, `tm`, `ip`) VALUES
 (10407, 1694967864, '::1'),
 (10408, 1694969205, '::1'),
 (10409, 1694970181, '::1'),
-(10410, 1694971095, '::1');
+(10410, 1694971095, '::1'),
+(10411, 1695001189, '::1'),
+(10412, 1695002490, '::1'),
+(10413, 1695017148, '::1'),
+(10414, 1695018419, '::1'),
+(10415, 1695019506, '::1'),
+(10416, 1695027554, '::1'),
+(10417, 1695197643, '::1'),
+(10418, 1695198744, '::1'),
+(10419, 1695199647, '::1'),
+(10420, 1695200769, '::1'),
+(10421, 1695265222, '::1');
 
 -- --------------------------------------------------------
 
@@ -3923,13 +3934,13 @@ INSERT INTO `table_counter` (`id`, `tm`, `ip`) VALUES
 
 CREATE TABLE `table_coupon` (
   `id` int(11) UNSIGNED NOT NULL,
-  `ma` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `stt` int(11) DEFAULT '0',
-  `loai` int(1) DEFAULT '0',
-  `tinhtrang` int(1) DEFAULT '0',
-  `chietkhau` int(11) DEFAULT '0',
-  `ngaybatdau` int(11) DEFAULT '0',
-  `ngayketthuc` int(11) DEFAULT '0',
+  `ma` varchar(30) DEFAULT NULL,
+  `stt` int(11) DEFAULT 0,
+  `loai` int(1) DEFAULT 0,
+  `tinhtrang` int(1) DEFAULT 0,
+  `chietkhau` int(11) DEFAULT 0,
+  `ngaybatdau` int(11) DEFAULT 0,
+  `ngayketthuc` int(11) DEFAULT 0,
   `solan` int(11) NOT NULL,
   `toithieu` double NOT NULL,
   `toida` double NOT NULL
@@ -3953,15 +3964,15 @@ INSERT INTO `table_coupon` (`id`, `ma`, `stt`, `loai`, `tinhtrang`, `chietkhau`,
 
 CREATE TABLE `table_district` (
   `id` int(11) NOT NULL,
-  `id_city` int(11) DEFAULT '0',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(3) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `id_city` int(11) DEFAULT 0,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `code` varchar(3) DEFAULT NULL,
+  `level` varchar(100) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -4684,9 +4695,9 @@ INSERT INTO `table_district` (`id`, `id_city`, `name`, `slug`, `code`, `level`, 
 
 CREATE TABLE `table_excel` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0'
+  `photo` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -4712,22 +4723,22 @@ INSERT INTO `table_excel` (`id`, `photo`, `type`, `numb`) VALUES
 
 CREATE TABLE `table_gallery` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hash` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `id_color` int(11) DEFAULT '0',
-  `file_attach` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `link_video` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `com` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `kind` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `val` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `id_parent` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL,
+  `hash` varchar(20) DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `id_color` int(11) DEFAULT 0,
+  `file_attach` varchar(255) DEFAULT NULL,
+  `link_video` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `type` varchar(30) DEFAULT NULL,
+  `com` varchar(255) DEFAULT NULL,
+  `kind` varchar(30) DEFAULT NULL,
+  `val` varchar(30) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -4764,10 +4775,10 @@ INSERT INTO `table_gallery` (`id`, `id_parent`, `photo`, `hash`, `nameen`, `name
 
 CREATE TABLE `table_lang` (
   `id` int(11) UNSIGNED NOT NULL,
-  `lang_define` mediumtext COLLATE utf8mb4_unicode_ci,
-  `langvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `langen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) UNSIGNED DEFAULT '0'
+  `lang_define` mediumtext DEFAULT NULL,
+  `langvi` mediumtext DEFAULT NULL,
+  `langen` mediumtext DEFAULT NULL,
+  `numb` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -4948,21 +4959,21 @@ INSERT INTO `table_lang` (`id`, `lang_define`, `langvi`, `langen`, `numb`) VALUE
 
 CREATE TABLE `table_member` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_social` tinyint(1) DEFAULT '0',
-  `username` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `confirm_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fullname` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` tinyint(1) DEFAULT '0',
-  `login_session` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lastlogin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `birthday` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `id_social` tinyint(1) DEFAULT 0,
+  `username` varchar(225) DEFAULT NULL,
+  `password` varchar(225) DEFAULT NULL,
+  `confirm_code` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `fullname` varchar(225) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(225) DEFAULT NULL,
+  `gender` tinyint(1) DEFAULT 0,
+  `login_session` varchar(255) DEFAULT NULL,
+  `lastlogin` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `birthday` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -4973,27 +4984,27 @@ CREATE TABLE `table_member` (
 
 CREATE TABLE `table_news` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_item` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `id_sub` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0',
-  `view` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `id_item` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `id_sub` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5021,20 +5032,20 @@ INSERT INTO `table_news` (`id`, `id_list`, `id_item`, `id_cat`, `id_sub`, `photo
 
 CREATE TABLE `table_newsletter` (
   `id` int(11) UNSIGNED NOT NULL,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_attach` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci,
-  `notes` varchar(1024) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `confirm_status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` mediumtext COLLATE utf8mb4_unicode_ci,
-  `type` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `fullname` varchar(255) DEFAULT NULL,
+  `file_attach` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `notes` varchar(1024) DEFAULT NULL,
+  `confirm_status` varchar(255) DEFAULT NULL,
+  `address` mediumtext DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
@@ -5045,22 +5056,22 @@ CREATE TABLE `table_newsletter` (
 
 CREATE TABLE `table_news_cat` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5071,23 +5082,23 @@ CREATE TABLE `table_news_cat` (
 
 CREATE TABLE `table_news_item` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_updated` int(11) DEFAULT '0',
-  `date_created` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_updated` int(11) DEFAULT 0,
+  `date_created` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5098,21 +5109,21 @@ CREATE TABLE `table_news_item` (
 
 CREATE TABLE `table_news_list` (
   `id` int(11) UNSIGNED NOT NULL,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5131,24 +5142,24 @@ INSERT INTO `table_news_list` (`id`, `slugvi`, `slugen`, `contenten`, `contentvi
 
 CREATE TABLE `table_news_sub` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `id_item` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_updated` int(11) DEFAULT '0',
-  `date_created` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `id_item` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_updated` int(11) DEFAULT 0,
+  `date_created` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5159,8 +5170,8 @@ CREATE TABLE `table_news_sub` (
 
 CREATE TABLE `table_news_tags` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `id_tags` int(11) DEFAULT '0'
+  `id_parent` int(11) DEFAULT 0,
+  `id_tags` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5171,24 +5182,24 @@ CREATE TABLE `table_news_tags` (
 
 CREATE TABLE `table_order` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_user` int(11) DEFAULT '0',
-  `code` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fullname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order_payment` int(11) DEFAULT '0',
-  `temp_price` double DEFAULT '0',
-  `total_price` double DEFAULT '0',
-  `city` int(11) DEFAULT '0',
-  `district` int(11) DEFAULT '0',
-  `ward` int(11) DEFAULT '0',
-  `ship_price` double DEFAULT '0',
-  `requirements` mediumtext COLLATE utf8mb4_unicode_ci,
-  `notes` mediumtext COLLATE utf8mb4_unicode_ci,
-  `date_created` int(11) DEFAULT '0',
-  `order_status` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `id_user` int(11) DEFAULT 0,
+  `code` varchar(25) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `order_payment` int(11) DEFAULT 0,
+  `temp_price` double DEFAULT 0,
+  `total_price` double DEFAULT 0,
+  `city` int(11) DEFAULT 0,
+  `district` int(11) DEFAULT 0,
+  `ward` int(11) DEFAULT 0,
+  `ship_price` double DEFAULT 0,
+  `requirements` mediumtext DEFAULT NULL,
+  `notes` mediumtext DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `order_status` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5199,16 +5210,16 @@ CREATE TABLE `table_order` (
 
 CREATE TABLE `table_order_detail` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_order` int(11) DEFAULT '0',
-  `id_product` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `size` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `regular_price` double DEFAULT '0',
-  `sale_price` double DEFAULT '0',
-  `quantity` int(11) DEFAULT '0'
+  `id_order` int(11) DEFAULT 0,
+  `id_product` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `color` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `regular_price` double DEFAULT 0,
+  `sale_price` double DEFAULT 0,
+  `quantity` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -5219,9 +5230,9 @@ CREATE TABLE `table_order_detail` (
 
 CREATE TABLE `table_order_status` (
   `id` int(11) NOT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `class_order` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `namevi` varchar(255) DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `class_order` varchar(30) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5243,8 +5254,8 @@ INSERT INTO `table_order_status` (`id`, `namevi`, `nameen`, `class_order`) VALUE
 
 CREATE TABLE `table_permission` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_permission_group` int(11) DEFAULT '0',
-  `permission` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `id_permission_group` int(11) DEFAULT 0,
+  `permission` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5354,11 +5365,11 @@ INSERT INTO `table_permission` (`id`, `id_permission_group`, `permission`) VALUE
 
 CREATE TABLE `table_permission_group` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `name` varchar(255) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5377,22 +5388,22 @@ INSERT INTO `table_permission_group` (`id`, `name`, `numb`, `status`, `date_crea
 
 CREATE TABLE `table_photo` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `link` mediumtext COLLATE utf8mb4_unicode_ci,
-  `link_video` mediumtext COLLATE utf8mb4_unicode_ci,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `act` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `photo` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `link` mediumtext DEFAULT NULL,
+  `link_video` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `act` varchar(30) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5444,39 +5455,39 @@ INSERT INTO `table_photo` (`id`, `photo`, `contenten`, `contentvi`, `descen`, `d
 
 CREATE TABLE `table_product` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_item` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `id_sub` int(11) DEFAULT '0',
-  `id_brand` int(11) DEFAULT '0',
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `regular_price` double DEFAULT '0',
-  `discount` double DEFAULT '0',
-  `sale_price` double DEFAULT '0',
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0',
-  `view` int(11) DEFAULT '0',
-  `size` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `color` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `xuatxu` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `locationvi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `locationen` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `timervi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `timeren` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id_list` int(11) DEFAULT 0,
+  `id_item` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `id_sub` int(11) DEFAULT 0,
+  `id_brand` int(11) DEFAULT 0,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `code` varchar(30) DEFAULT NULL,
+  `regular_price` double DEFAULT 0,
+  `discount` double DEFAULT 0,
+  `sale_price` double DEFAULT 0,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT 0,
+  `size` text NOT NULL,
+  `color` text NOT NULL,
+  `xuatxu` text NOT NULL,
+  `locationvi` varchar(255) NOT NULL,
+  `locationen` varchar(255) NOT NULL,
+  `timervi` varchar(255) NOT NULL,
+  `timeren` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5492,10 +5503,10 @@ INSERT INTO `table_product` (`id`, `id_list`, `id_item`, `id_cat`, `id_sub`, `id
 (6, 2, 2, 2, 2, 6, 'img01-9158.png', NULL, '{\"p\":\"img01-9158.png\",\"w\":1024,\"h\":768,\"m\":\"image\\/png\"}', 'giay-slip-on-ultraboost-25', '', '&lt;p&gt;Dong Hai Men\'s Shoes - G0702 with Monkstrap design is a men\'s shoe that is loved by gentlemen because of its elegance and masculinity. Characteristic of Double Monkstrap, the G0702 has a unique design with a snap and two metal buckles across the upper part of the shoe. Made of high quality cowhide leather with moderate elasticity, suitable shape, and soft and soft shoe lining creating a comfortable feeling for men to use. Men\'s shoes G0702 has a luxurious but classic style that is suitable for office, meeting and party environments.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Product code: G0702&lt;/li&gt;\r\n	&lt;li&gt;Color: Yellow, Black&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Material: Cowhide&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '&lt;p&gt;Giày tây nam Đông Hải - G0702 với kiểu dáng Monkstrap là kiểu giày nam được quý ông yêu thích bởi sự lịch lãm, nam tính. Mang nét đặc trưng của Double Monkstrap, G0702 có thiết kế độc đáo với phần đóng mở bằng dây gài và 2 khóa kim loại vắt ngang qua phần thân giày. Được làm bằng chất liệu da bò cao cấp có độ co giãn vừa phải, form dáng phù hợp, cùng với lớp lót giày mềm mịn tạo cảm giác thoải mái, dễ chịu cho phái mạnh khi sử dụng. Giày tây nam G0702 mang phong cách sang trọng mà cổ điển phù hợp với môi trường công sở, hội họp và dự tiệc.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Mã sản phẩm: G0702&lt;/li&gt;\r\n	&lt;li&gt;Màu: Vàng, Đen&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Chất liệu: Da bò&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Hurry to the streets without much time? Get your feet in these adidas Superstar slip-on shoes and easily create an elegant style at the last minute.\r\nThe wireless design on the body of the shoe combines a sporty stretch belt that hugs the feet for a comfortable fit. Wherever you go, whether paired with trousers or short skirts, the shoes will help you stand out with a modern style.', 'Vội ra đường mà không có nhiều thời gian? Hãy xỏ chân vào đôi giày slip-on adidas Superstar này và dễ dàng tạo phong cách thanh lịch vào phút chót. \r\nThiết kế không dây trên thân giày kết hợp đai co giãn đậm chất thể thao ôm sát bàn chân cho độ vừa vặn thoải mái. Dù bạn đi đâu, dù phối với quần ống loe hay váy ngắn, đôi giày cũng sẽ giúp bạn nổi bật với phong cách hiện đại.', 'Slip On Ultraboost 25', 'Giày Slip On Ultraboost 25', 'SOUL-25', 150000, 40, 90000, 6, 'noibat,moi,banchay,hienthi', 'san-pham', 1609249099, 1675302158, 6, '', '', '', '', '', '', ''),
 (7, 2, 2, 2, 2, 7, 'img03-3565.png', NULL, '{\"p\":\"jpc1kzktrzrtpxgphryk-7564.png\",\"w\":650,\"h\":490,\"m\":\"image\\/png\"}', 'giay-slip-on-ultraboost-26', '', '&lt;p&gt;Dong Hai Men\'s Shoes - G0702 with Monkstrap design is a men\'s shoe that is loved by gentlemen because of its elegance and masculinity. Characteristic of Double Monkstrap, the G0702 has a unique design with a snap and two metal buckles across the upper part of the shoe. Made of high quality cowhide leather with moderate elasticity, suitable shape, and soft and soft shoe lining creating a comfortable feeling for men to use. Men\'s shoes G0702 has a luxurious but classic style that is suitable for office, meeting and party environments.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Product code: G0702&lt;/li&gt;\r\n	&lt;li&gt;Color: Yellow, Black&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Material: Cowhide&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '&lt;p&gt;Giày tây nam Đông Hải - G0702 với kiểu dáng Monkstrap là kiểu giày nam được quý ông yêu thích bởi sự lịch lãm, nam tính. Mang nét đặc trưng của Double Monkstrap, G0702 có thiết kế độc đáo với phần đóng mở bằng dây gài và 2 khóa kim loại vắt ngang qua phần thân giày. Được làm bằng chất liệu da bò cao cấp có độ co giãn vừa phải, form dáng phù hợp, cùng với lớp lót giày mềm mịn tạo cảm giác thoải mái, dễ chịu cho phái mạnh khi sử dụng. Giày tây nam G0702 mang phong cách sang trọng mà cổ điển phù hợp với môi trường công sở, hội họp và dự tiệc.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Mã sản phẩm: G0702&lt;/li&gt;\r\n	&lt;li&gt;Màu: Vàng, Đen&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Chất liệu: Da bò&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Hurry to the streets without much time? Get your feet in these adidas Superstar slip-on shoes and easily create an elegant style at the last minute.\r\nThe wireless design on the body of the shoe combines a sporty stretch belt that hugs the feet for a comfortable fit. Wherever you go, whether paired with trousers or short skirts, the shoes will help you stand out with a modern style.', 'Vội ra đường mà không có nhiều thời gian? Hãy xỏ chân vào đôi giày slip-on adidas Superstar này và dễ dàng tạo phong cách thanh lịch vào phút chót. \r\nThiết kế không dây trên thân giày kết hợp đai co giãn đậm chất thể thao ôm sát bàn chân cho độ vừa vặn thoải mái. Dù bạn đi đâu, dù phối với quần ống loe hay váy ngắn, đôi giày cũng sẽ giúp bạn nổi bật với phong cách hiện đại.', 'Slip On Ultraboost 26', 'Giày Slip On Ultraboost 26', 'SOUL-26', 300000, 67, 100000, 7, 'noibat,moi,banchay,hienthi', 'san-pham', 1609249216, 1675302164, 1, '', '', '', '', '', '', ''),
 (8, 2, 2, 2, 2, 1, 'img04-5349.png', NULL, '{\"p\":\"img04-5349.png\",\"w\":1024,\"h\":768,\"m\":\"image\\/png\"}', 'giay-slip-on-ultraboost-27', '', '&lt;p&gt;Dong Hai Men\'s Shoes - G0702 with Monkstrap design is a men\'s shoe that is loved by gentlemen because of its elegance and masculinity. Characteristic of Double Monkstrap, the G0702 has a unique design with a snap and two metal buckles across the upper part of the shoe. Made of high quality cowhide leather with moderate elasticity, suitable shape, and soft and soft shoe lining creating a comfortable feeling for men to use. Men\'s shoes G0702 has a luxurious but classic style that is suitable for office, meeting and party environments.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Product code: G0702&lt;/li&gt;\r\n	&lt;li&gt;Color: Yellow, Black&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Material: Cowhide&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '&lt;p&gt;Giày tây nam Đông Hải - G0702 với kiểu dáng Monkstrap là kiểu giày nam được quý ông yêu thích bởi sự lịch lãm, nam tính. Mang nét đặc trưng của Double Monkstrap, G0702 có thiết kế độc đáo với phần đóng mở bằng dây gài và 2 khóa kim loại vắt ngang qua phần thân giày. Được làm bằng chất liệu da bò cao cấp có độ co giãn vừa phải, form dáng phù hợp, cùng với lớp lót giày mềm mịn tạo cảm giác thoải mái, dễ chịu cho phái mạnh khi sử dụng. Giày tây nam G0702 mang phong cách sang trọng mà cổ điển phù hợp với môi trường công sở, hội họp và dự tiệc.&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;Mã sản phẩm: G0702&lt;/li&gt;\r\n	&lt;li&gt;Màu: Vàng, Đen&lt;/li&gt;\r\n	&lt;li&gt;Size: 38 - 43&lt;/li&gt;\r\n	&lt;li&gt;Chất liệu: Da bò&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', 'Hurry to the streets without much time? Get your feet in these adidas Superstar slip-on shoes and easily create an elegant style at the last minute.\r\nThe wireless design on the body of the shoe combines a sporty stretch belt that hugs the feet for a comfortable fit. Wherever you go, whether paired with trousers or short skirts, the shoes will help you stand out with a modern style.', 'Vội ra đường mà không có nhiều thời gian? Hãy xỏ chân vào đôi giày slip-on adidas Superstar này và dễ dàng tạo phong cách thanh lịch vào phút chót. \r\nThiết kế không dây trên thân giày kết hợp đai co giãn đậm chất thể thao ôm sát bàn chân cho độ vừa vặn thoải mái. Dù bạn đi đâu, dù phối với quần ống loe hay váy ngắn, đôi giày cũng sẽ giúp bạn nổi bật với phong cách hiện đại.', 'Slip On Ultraboost 27', 'Giày Slip On Ultraboost 27', 'SOUL-27', 400000, 38, 250000, 8, 'noibat,moi,banchay,hienthi', 'san-pham', 1609249283, 1675302170, 2, '', '', '', '', '', '', ''),
-(9, 0, 0, 0, 0, 0, 'blog-thumbnail-2-9986.png', NULL, '{\"p\":\"blog-thumbnail-2-9986.png\",\"w\":700,\"h\":500,\"m\":\"image\\/png\"}', 'hinh-anh-giay-nike-air-max', '', '', '', '', '', 'Nike Air Max shoe image', 'Hình ảnh giày Nike Air Max', '', 0, 0, 0, 1, 'hienthi', 'thu-vien-anh', 1609287629, 1675304256, 22, '', '', '', '', '', '', ''),
-(10, 0, 0, 0, 0, 0, 'a-2023-nike-dunk-color-storyblog-thumbnailen-7768.png', NULL, '{\"p\":\"poduct-1-1758-8192.jpeg\",\"w\":540,\"h\":540,\"m\":\"image\\/jpeg\"}', 'hinh-anh-giay-nike-zoom', '', '', '', '', '', 'Nike Zoom shoe image', 'Hình ảnh giày Nike Zoom', '', 0, 0, 0, 2, 'hienthi', 'thu-vien-anh', 1609287653, 1675304264, 3, '', '', '', '', '', '', ''),
-(11, 0, 0, 0, 0, 0, 'marvelblackpanthersanfordgreeneinterviewinternalbannersblog-thumb-8113.jpg', NULL, '', 'hinh-anh-giay-nike-air-force', '', '', '', '', '', 'Nike Air Force shoe image', 'Hình ảnh giày Nike Air Force', '', 0, 0, 0, 3, 'hienthi', 'thu-vien-anh', 1609287703, 1675304268, 0, '', '', '', '', '', '', ''),
-(13, 0, 0, 0, 0, 0, 'droplist-013023-blog-header-6828.jpg', NULL, '', 'hinh-anh-giay-nike-phantom', '', '', '', '', '', 'Nike Phantom shoe image', 'Hình ảnh giày Nike Phantom', '', 0, 0, 0, 4, 'hienthi', 'thu-vien-anh', 1609287738, 1675304272, 0, '', '', '', '', '', '', ''),
+(9, 0, 0, 0, 0, 0, 'blog-thumbnail-2-9986.png', NULL, '{\"p\":\"blog-thumbnail-2-9986.png\",\"w\":700,\"h\":500,\"m\":\"image\\/png\"}', 'hinh-anh-giay-nike-air-max', '', '', '', '', '', 'Nike Air Max shoe image', 'Hình ảnh giày Nike Air Max', '', 0, 0, 0, 1, 'hienthi,noibat', 'thu-vien-anh', 1609287629, 1675304256, 22, '', '', '', '', '', '', ''),
+(10, 0, 0, 0, 0, 0, 'a-2023-nike-dunk-color-storyblog-thumbnailen-7768.png', NULL, '{\"p\":\"poduct-1-1758-8192.jpeg\",\"w\":540,\"h\":540,\"m\":\"image\\/jpeg\"}', 'hinh-anh-giay-nike-zoom', '', '', '', '', '', 'Nike Zoom shoe image', 'Hình ảnh giày Nike Zoom', '', 0, 0, 0, 2, 'hienthi,noibat', 'thu-vien-anh', 1609287653, 1675304264, 3, '', '', '', '', '', '', ''),
+(11, 0, 0, 0, 0, 0, 'marvelblackpanthersanfordgreeneinterviewinternalbannersblog-thumb-8113.jpg', NULL, '', 'hinh-anh-giay-nike-air-force', '', '', '', '', '', 'Nike Air Force shoe image', 'Hình ảnh giày Nike Air Force', '', 0, 0, 0, 3, 'hienthi,noibat', 'thu-vien-anh', 1609287703, 1675304268, 0, '', '', '', '', '', '', ''),
+(13, 0, 0, 0, 0, 0, 'droplist-013023-blog-header-6828.jpg', NULL, '', 'hinh-anh-giay-nike-phantom', '', '', '', '', '', 'Nike Phantom shoe image', 'Hình ảnh giày Nike Phantom', '', 0, 0, 0, 4, 'hienthi,noibat', 'thu-vien-anh', 1609287738, 1675304272, 0, '', '', '', '', '', '', ''),
 (39, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', 'Thái Lan', '', 0, 0, 0, 1, 'hienthi', 'xuat-xu', 1675246397, 0, 0, '', '', '', '', '', '', ''),
 (40, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', 'Việt Nam', '', 0, 0, 0, 2, 'hienthi', 'xuat-xu', 1675246403, 0, 0, '', '', '', '', '', '', ''),
 (41, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', '', '', '', 'Singapore', '', 0, 0, 0, 3, 'hienthi', 'xuat-xu', 1675246409, 0, 0, '', '', '', '', '', '', ''),
@@ -5516,21 +5527,21 @@ INSERT INTO `table_product` (`id`, `id_list`, `id_item`, `id_cat`, `id_sub`, `id
 
 CREATE TABLE `table_product_brand` (
   `id` int(11) NOT NULL,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5554,22 +5565,22 @@ INSERT INTO `table_product_brand` (`id`, `slugvi`, `slugen`, `contenten`, `conte
 
 CREATE TABLE `table_product_cat` (
   `id` int(11) NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5588,23 +5599,23 @@ INSERT INTO `table_product_cat` (`id`, `id_list`, `slugvi`, `slugen`, `contenten
 
 CREATE TABLE `table_product_item` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_updated` int(11) DEFAULT '0',
-  `date_created` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_updated` int(11) DEFAULT 0,
+  `date_created` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5623,21 +5634,21 @@ INSERT INTO `table_product_item` (`id`, `id_list`, `id_cat`, `slugvi`, `slugen`,
 
 CREATE TABLE `table_product_list` (
   `id` int(11) NOT NULL,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5656,9 +5667,9 @@ INSERT INTO `table_product_list` (`id`, `slugvi`, `slugen`, `contenten`, `conten
 
 CREATE TABLE `table_product_sale` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `id_color` int(11) DEFAULT '0',
-  `id_size` int(11) DEFAULT '0'
+  `id_parent` int(11) DEFAULT 0,
+  `id_color` int(11) DEFAULT 0,
+  `id_size` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5734,7 +5745,7 @@ CREATE TABLE `table_product_sale_color` (
   `id` int(11) NOT NULL,
   `id_parent` int(11) NOT NULL,
   `id_color` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `table_product_sale_color`
@@ -5773,7 +5784,7 @@ CREATE TABLE `table_product_sale_size` (
   `id` int(11) NOT NULL,
   `id_parent` int(11) NOT NULL,
   `id_size` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `table_product_sale_size`
@@ -5808,24 +5819,24 @@ INSERT INTO `table_product_sale_size` (`id`, `id_parent`, `id_size`) VALUES
 
 CREATE TABLE `table_product_sub` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_list` int(11) DEFAULT '0',
-  `id_cat` int(11) DEFAULT '0',
-  `id_item` int(11) DEFAULT '0',
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_updated` int(11) DEFAULT '0',
-  `date_created` int(11) DEFAULT '0'
+  `id_list` int(11) DEFAULT 0,
+  `id_cat` int(11) DEFAULT 0,
+  `id_item` int(11) DEFAULT 0,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `date_updated` int(11) DEFAULT 0,
+  `date_created` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5844,8 +5855,8 @@ INSERT INTO `table_product_sub` (`id`, `id_list`, `id_cat`, `id_item`, `slugvi`,
 
 CREATE TABLE `table_product_tags` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `id_tags` int(11) DEFAULT '0'
+  `id_parent` int(11) DEFAULT 0,
+  `id_tags` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5863,12 +5874,12 @@ INSERT INTO `table_product_tags` (`id`, `id_parent`, `id_tags`) VALUES
 
 CREATE TABLE `table_pushonesignal` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` mediumtext COLLATE utf8mb4_unicode_ci,
-  `date_created` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `name` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `description` mediumtext DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5887,18 +5898,18 @@ INSERT INTO `table_pushonesignal` (`id`, `name`, `link`, `photo`, `description`,
 
 CREATE TABLE `table_seo` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_parent` int(11) DEFAULT '0',
-  `com` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `act` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `titlevi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `keywordsvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descriptionvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `titleen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `keywordsen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descriptionen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `schemavi` text COLLATE utf8mb4_unicode_ci,
-  `schemaen` text COLLATE utf8mb4_unicode_ci
+  `id_parent` int(11) DEFAULT 0,
+  `com` varchar(30) DEFAULT NULL,
+  `act` varchar(30) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `titlevi` mediumtext DEFAULT NULL,
+  `keywordsvi` mediumtext DEFAULT NULL,
+  `descriptionvi` mediumtext DEFAULT NULL,
+  `titleen` mediumtext DEFAULT NULL,
+  `keywordsen` mediumtext DEFAULT NULL,
+  `descriptionen` mediumtext DEFAULT NULL,
+  `schemavi` text DEFAULT NULL,
+  `schemaen` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
@@ -5963,15 +5974,15 @@ INSERT INTO `table_seo` (`id`, `id_parent`, `com`, `act`, `type`, `titlevi`, `ke
 
 CREATE TABLE `table_seopage` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `titlevi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `keywordsvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descriptionvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `titleen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `keywordsen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descriptionen` mediumtext COLLATE utf8mb4_unicode_ci
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `titlevi` mediumtext DEFAULT NULL,
+  `keywordsvi` mediumtext DEFAULT NULL,
+  `descriptionvi` mediumtext DEFAULT NULL,
+  `titleen` mediumtext DEFAULT NULL,
+  `keywordsen` mediumtext DEFAULT NULL,
+  `descriptionen` mediumtext DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
@@ -5994,13 +6005,13 @@ INSERT INTO `table_seopage` (`id`, `photo`, `options`, `type`, `titlevi`, `keywo
 
 CREATE TABLE `table_setting` (
   `id` int(11) NOT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `mastertool` mediumtext COLLATE utf8mb4_unicode_ci,
-  `headjs` mediumtext COLLATE utf8mb4_unicode_ci,
-  `bodyjs` mediumtext COLLATE utf8mb4_unicode_ci,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `analytics` mediumtext COLLATE utf8mb4_unicode_ci
+  `options` mediumtext DEFAULT NULL,
+  `mastertool` mediumtext DEFAULT NULL,
+  `headjs` mediumtext DEFAULT NULL,
+  `bodyjs` mediumtext DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `analytics` mediumtext DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6018,13 +6029,13 @@ INSERT INTO `table_setting` (`id`, `options`, `mastertool`, `headjs`, `bodyjs`, 
 
 CREATE TABLE `table_size` (
   `id` int(11) UNSIGNED NOT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `namevi` varchar(255) DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6045,22 +6056,22 @@ INSERT INTO `table_size` (`id`, `namevi`, `nameen`, `type`, `numb`, `status`, `d
 
 CREATE TABLE `table_static` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_attach` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `photo` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `file_attach` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6081,21 +6092,21 @@ INSERT INTO `table_static` (`id`, `photo`, `photo2`, `options`, `slugvi`, `sluge
 
 CREATE TABLE `table_tags` (
   `id` int(11) UNSIGNED NOT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
-  `slugvi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slugen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `contenten` mediumtext COLLATE utf8mb4_unicode_ci,
-  `contentvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descen` mediumtext COLLATE utf8mb4_unicode_ci,
-  `descvi` mediumtext COLLATE utf8mb4_unicode_ci,
-  `nameen` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `namevi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_created` int(11) DEFAULT '0',
-  `date_updated` int(11) DEFAULT '0'
+  `photo` varchar(255) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `slugvi` varchar(255) DEFAULT NULL,
+  `slugen` varchar(255) DEFAULT NULL,
+  `contenten` mediumtext DEFAULT NULL,
+  `contentvi` mediumtext DEFAULT NULL,
+  `descen` mediumtext DEFAULT NULL,
+  `descvi` mediumtext DEFAULT NULL,
+  `nameen` varchar(255) DEFAULT NULL,
+  `namevi` varchar(255) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT 0,
+  `date_updated` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -6106,24 +6117,24 @@ CREATE TABLE `table_tags` (
 
 CREATE TABLE `table_user` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_permission` int(11) DEFAULT '0',
-  `username` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `confirm_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fullname` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(225) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` tinyint(1) DEFAULT '0',
-  `login_session` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lastlogin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` tinyint(1) DEFAULT '1',
-  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `birthday` int(11) DEFAULT '0',
-  `numb` int(11) DEFAULT '0'
+  `id_permission` int(11) DEFAULT 0,
+  `username` varchar(225) DEFAULT NULL,
+  `password` varchar(225) DEFAULT NULL,
+  `confirm_code` varchar(255) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `fullname` varchar(225) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `address` varchar(225) DEFAULT NULL,
+  `gender` tinyint(1) DEFAULT 0,
+  `login_session` varchar(255) DEFAULT NULL,
+  `user_token` varchar(255) DEFAULT NULL,
+  `lastlogin` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `role` tinyint(1) DEFAULT 1,
+  `secret_key` varchar(255) DEFAULT NULL,
+  `birthday` int(11) DEFAULT 0,
+  `numb` int(11) DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6131,7 +6142,7 @@ CREATE TABLE `table_user` (
 --
 
 INSERT INTO `table_user` (`id`, `id_permission`, `username`, `password`, `confirm_code`, `avatar`, `fullname`, `phone`, `email`, `address`, `gender`, `login_session`, `user_token`, `lastlogin`, `status`, `role`, `secret_key`, `birthday`, `numb`) VALUES
-(1, 0, 'admin', '437c59f47eece9d23253b9f25366f721', '', '', 'Administrator', '0939513667', 'admin@gmail.com', '', 1, 'aa0244781b1f816f40f6c4fb83c04c5e', '5e55fb913e8945d444c3d3e899507195', '1694971338', 'hienthi', 3, 'aa0244781b1f816f40f6c4fb83c04c5e', 1608051600, 0),
+(1, 0, 'admin', '437c59f47eece9d23253b9f25366f721', '', '', 'Administrator', '0939513667', 'admin@gmail.com', '', 1, 'aa0244781b1f816f40f6c4fb83c04c5e', '269df096e76c3f1fbdc03b036d8db523', '1695027809', 'hienthi', 3, 'aa0244781b1f816f40f6c4fb83c04c5e', 1608051600, 0),
 (142, 0, 'coder', '39e65eab792782b4d890458db418732f', '', '', 'Administrator', '0939513667', 'admin@gmail.com', '', 1, '9bde4b35537793a01d63f33ba6db7c94', '3798494f80b14f9590b308a9f00527d4', '1676943462', 'hienthi', 3, '', 1608051600, 0);
 
 -- --------------------------------------------------------
@@ -6142,7 +6153,7 @@ INSERT INTO `table_user` (`id`, `id_permission`, `username`, `password`, `confir
 
 CREATE TABLE `table_user_limit` (
   `id` int(11) NOT NULL,
-  `login_ip` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `login_ip` varchar(50) NOT NULL,
   `login_attempts` int(11) NOT NULL,
   `attempt_time` int(11) NOT NULL,
   `locked_time` int(11) NOT NULL
@@ -6163,10 +6174,10 @@ INSERT INTO `table_user_limit` (`id`, `login_ip`, `login_attempts`, `attempt_tim
 
 CREATE TABLE `table_user_log` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_user` int(11) DEFAULT '0',
-  `ip` varchar(16) COLLATE utf8mb4_unicode_ci DEFAULT '0.0.0.0',
-  `timelog` int(11) DEFAULT '0',
-  `user_agent` mediumtext COLLATE utf8mb4_unicode_ci
+  `id_user` int(11) DEFAULT 0,
+  `ip` varchar(16) DEFAULT '0.0.0.0',
+  `timelog` int(11) DEFAULT 0,
+  `user_agent` mediumtext DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6327,7 +6338,9 @@ INSERT INTO `table_user_log` (`id`, `id_user`, `ip`, `timelog`, `user_agent`) VA
 (151, 1, '::1', 1694876146, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'),
 (152, 1, '::1', 1694889469, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'),
 (153, 1, '::1', 1694955346, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'),
-(154, 1, '::1', 1694968335, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36');
+(154, 1, '::1', 1694968335, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'),
+(155, 1, '::1', 1695018735, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'),
+(156, 1, '::1', 1695027739, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36');
 
 -- --------------------------------------------------------
 
@@ -6336,9 +6349,9 @@ INSERT INTO `table_user_log` (`id`, `id_user`, `ip`, `timelog`, `user_agent`) VA
 --
 
 CREATE TABLE `table_user_online` (
-  `session` char(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `time` int(11) DEFAULT '0',
-  `ip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `session` char(100) DEFAULT NULL,
+  `time` int(11) DEFAULT 0,
+  `ip` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -6346,7 +6359,7 @@ CREATE TABLE `table_user_online` (
 --
 
 INSERT INTO `table_user_online` (`session`, `time`, `ip`) VALUES
-('b1a19hegldeel6kneqrkl4vog1', 1694971856, '::1');
+('sm4egqlsca67pj2nk3k6qv4knd', 1695265475, '::1');
 
 -- --------------------------------------------------------
 
@@ -6359,7 +6372,7 @@ CREATE TABLE `table_variants` (
   `id_parent` int(11) NOT NULL,
   `color` int(11) NOT NULL,
   `photo` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `table_variants`
@@ -6383,7 +6396,7 @@ CREATE TABLE `table_variants1` (
   `size` int(11) NOT NULL,
   `price_new` double NOT NULL,
   `price_old` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `table_variants1`
@@ -6401,16 +6414,16 @@ INSERT INTO `table_variants1` (`id`, `id_parent`, `size`, `price_new`, `price_ol
 
 CREATE TABLE `table_ward` (
   `id` int(11) UNSIGNED NOT NULL,
-  `id_city` int(11) DEFAULT '0',
-  `id_district` int(11) DEFAULT '0',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `numb` int(11) DEFAULT '0',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `date_updated` int(11) DEFAULT '0',
-  `date_created` int(11) DEFAULT '0',
+  `id_city` int(11) DEFAULT 0,
+  `id_district` int(11) DEFAULT 0,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `code` varchar(5) DEFAULT NULL,
+  `level` varchar(100) DEFAULT NULL,
+  `numb` int(11) DEFAULT 0,
+  `status` varchar(255) DEFAULT NULL,
+  `date_updated` int(11) DEFAULT 0,
+  `date_created` int(11) DEFAULT 0,
   `ship_price` double DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -17381,7 +17394,7 @@ ALTER TABLE `table_contact`
 -- AUTO_INCREMENT for table `table_counter`
 --
 ALTER TABLE `table_counter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10411;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10422;
 
 --
 -- AUTO_INCREMENT for table `table_coupon`
@@ -17615,7 +17628,7 @@ ALTER TABLE `table_user_limit`
 -- AUTO_INCREMENT for table `table_user_log`
 --
 ALTER TABLE `table_user_log`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 
 --
 -- AUTO_INCREMENT for table `table_variants`

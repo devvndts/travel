@@ -1,6 +1,7 @@
 <!-- Css Files -->
 <?php
 $css->set("css/animate.min.css");
+$css->set("css/animate.css");
 $css->set("bootstrap/bootstrap.css");
 $css->set("fontawesome611/all.css");
 $css->set("confirm/confirm.css");
@@ -24,15 +25,15 @@ $css->set("owlcarousel2/owl.theme.default.css");
 // $css->set("fileuploader/jquery.fileuploader.min.css");
 // $css->set("fileuploader/jquery.fileuploader-theme-dragdrop.css");
 $css->set("css/style.css");
-//$css->set("css/style-responsive.css");
+$css->set("css/style-responsive.css");
 echo $css->get();
 ?>
 
 <!-- Main color site -->
 <style>
-    :root {
-        --maincolor: #<?=$optsetting['colorSite']?>;
-    }
+:root {
+    --maincolor: #<?=$optsetting['colorSite']?>;
+}
 </style>
 
 <!-- Background -->

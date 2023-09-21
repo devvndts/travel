@@ -11,7 +11,8 @@
     include TEMPLATE . LAYOUT . "seo.php";
     include TEMPLATE . LAYOUT . "header.php";
     include TEMPLATE . LAYOUT . "mmenu.php";
-    if ($source == 'index') include TEMPLATE . LAYOUT . "slide.php";
+
+    if ($source == 'index' || $com == 'gioi-thieu' || $com == 'tin-tuc' || $com == 'lien-he') include TEMPLATE . LAYOUT . "slide.php";
     else include TEMPLATE . LAYOUT . "breadcrumb.php";
     ?>
     <div class="wrap-main <?= ($source == 'index') ? 'wrap-home' : '' ?> w-clear">

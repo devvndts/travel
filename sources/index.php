@@ -2,7 +2,7 @@
 if (!defined('SOURCES')) die("Error");
 // $popup = $cache->get("select name$lang, photo, link from #_photo where type = ? and act = ? and find_in_set('hienthi',status) limit 0,1", array('popup', 'photo_static'), 'fetch', 7200);
 
-$slider = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('slide'), 'result', 7200);
+
 $photoIntro = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('photo-intro'), 'result', 7200);
 $photoCriteria = $cache->get("select name$lang, photo, link from #_photo where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('photo-criteria'), 'result', 7200);
 $tourHot = $d->rawQuery("select * from #_product where find_in_set('hot',status) order by numb,id desc", array());
@@ -10,6 +10,8 @@ $tourFavorite = $d->rawQuery("select * from #_product where find_in_set('favorit
 
 $tourInside = $d->rawQuery("select * from #_product where type = ? and find_in_set('hienthi',status) order by numb,id desc", array("tour-inside"));
 $tourOur = $d->rawQuery("select * from #_product where type = ? and find_in_set('hienthi',status) order by numb,id desc", array("tour-outside"));
+
+$getPhotoGallary=$d->rawQuery("select photo,slugvi, slugen from #_product where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc limit 0,6",array("thu-vien-anh"));
 
 
 // $brand = $cache->get("select name$lang, slugvi, slugen, id, photo from #_product_brand where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('san-pham'), 'result', 7200);
@@ -21,6 +23,8 @@ $tourOur = $d->rawQuery("select * from #_product where type = ? and find_in_set(
 $splistmenu = $cache->get("select name$lang, slugvi, slugen, id from #_product_list where type = ? and find_in_set('hienthi',status) order by numb,id desc", array('san-pham'), 'result', 7200);
 
 $newsnb = $cache->get("select name$lang, slugvi, slugen, desc$lang, date_created, id, photo from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('tin-tuc'), 'result', 7200);
+
+$report = $cache->get("select name$lang, slugvi, slugen, desc$lang, date_created, id, photo from #_news where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status) order by numb,id desc", array('danh-gia'), 'result', 7200);
 
 $videonb = $cache->get("select id from #_photo where type = ? and find_in_set('noibat',status) and find_in_set('hienthi',status)", array('video'), 'result', 7200);
 
